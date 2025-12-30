@@ -5,6 +5,7 @@ import { HeroSection } from "@/components/proposal/HeroSection";
 import { ExecutiveSummarySection } from "@/components/proposal/ExecutiveSummarySection";
 import { ObjectivesSection } from "@/components/proposal/ObjectivesSection";
 import { PlatformsSection } from "@/components/proposal/PlatformsSection";
+import { ProductsSection } from "@/components/proposal/ProductsSection";
 import { PlanComparisonSection } from "@/components/proposal/PlanComparisonSection";
 import { DeliverablesSection } from "@/components/proposal/DeliverablesSection";
 import { RoadmapSection } from "@/components/proposal/RoadmapSection";
@@ -13,12 +14,15 @@ import { SampleReelsSection } from "@/components/proposal/SampleReelsSection";
 import { KPIsSection } from "@/components/proposal/KPIsSection";
 import { CommercialClaritySection } from "@/components/proposal/CommercialClaritySection";
 import { ApprovalSection } from "@/components/proposal/ApprovalSection";
+import { ContactButtons } from "@/components/proposal/ContactButtons";
+import { useSectionNavigation } from "@/hooks/useSectionNavigation";
 
 const sections = [
   { id: "home", label: "Home" },
   { id: "summary", label: "Summary" },
   { id: "objectives", label: "Objectives" },
   { id: "platforms", label: "Platforms" },
+  { id: "products", label: "Products" },
   { id: "plans", label: "Plans" },
   { id: "deliverables", label: "Deliverables" },
   { id: "roadmap", label: "Roadmap" },
@@ -34,12 +38,15 @@ const Index = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const { navigateToSection } = useSectionNavigation({
+    containerRef,
+    sectionsCount: sections.length,
+    activeIndex,
+    setActiveIndex,
+  });
+
   const handleNavigate = (index: number) => {
-    const container = containerRef.current;
-    if (container) {
-      const sectionWidth = container.offsetWidth;
-      container.scrollTo({ left: index * sectionWidth, behavior: "smooth" });
-    }
+    navigateToSection(index);
   };
 
   useEffect(() => {
@@ -66,6 +73,7 @@ const Index = () => {
         <ExecutiveSummarySection />
         <ObjectivesSection />
         <PlatformsSection />
+        <ProductsSection />
         <PlanComparisonSection />
         <DeliverablesSection selectedPlan={selectedPlan} />
         <RoadmapSection />
@@ -75,6 +83,8 @@ const Index = () => {
         <CommercialClaritySection />
         <ApprovalSection selectedPlan={selectedPlan} onPlanChange={setSelectedPlan} />
       </div>
+      
+      <ContactButtons />
     </div>
   );
 };
