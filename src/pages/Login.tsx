@@ -5,31 +5,59 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/contexts/AuthContext";
-import { Lock, User, AlertCircle } from "lucide-react";
+import { Lock, Mail, AlertCircle, Loader2 } from "lucide-react";
 import brandvoxLogo from "@/assets/brandvox-logo.png";
 import excellenceLogo from "@/assets/excellence-hotsauce-logo.png";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { login } = useAuth();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mode, setMode] = useState<"login" | "signup">("login");
+  const { login, signUp } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
 
-    if (!username || !password) {
-      setError("Please enter both username and password");
+    if (!email || !password) {
+      setError("Please enter both email and password");
       return;
     }
 
-    const success = login(username, password);
-    if (success) {
-      navigate("/");
-    } else {
-      setError("Invalid username or password");
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      if (mode === "login") {
+        const { error } = await login(email, password);
+        if (error) {
+          setError(error);
+        } else {
+          navigate("/");
+        }
+      } else {
+        const { error } = await signUp(email, password);
+        if (error) {
+          if (error.includes("already registered")) {
+            setError("This email is already registered. Please sign in instead.");
+          } else {
+            setError(error);
+          }
+        } else {
+          navigate("/");
+        }
+      }
+    } catch (err) {
+      setError("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -52,8 +80,12 @@ const Login = () => {
           </div>
 
           <div className="text-center mb-8">
-            <h1 className="font-sora text-2xl font-bold text-foreground mb-2">Welcome</h1>
-            <p className="text-muted-foreground text-sm">Sign in to view the proposal</p>
+            <h1 className="font-sora text-2xl font-bold text-foreground mb-2">
+              {mode === "login" ? "Welcome Back" : "Create Account"}
+            </h1>
+            <p className="text-muted-foreground text-sm">
+              {mode === "login" ? "Sign in to view the proposal" : "Sign up to access the proposal"}
+            </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -69,16 +101,17 @@ const Login = () => {
             )}
 
             <div className="space-y-2">
-              <Label htmlFor="username" className="text-foreground">Username</Label>
+              <Label htmlFor="email" className="text-foreground">Email</Label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <Input
-                  id="username"
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Enter username"
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
                   className="pl-10"
+                  disabled={isSubmitting}
                 />
               </div>
             </div>
@@ -92,17 +125,43 @@ const Login = () => {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter password"
+                  placeholder="Enter your password"
                   className="pl-10"
+                  disabled={isSubmitting}
                 />
               </div>
             </div>
 
-            <Button type="submit" variant="approve" size="lg" className="w-full">
-              <Lock className="w-4 h-4" />
-              Sign In
+            <Button 
+              type="submit" 
+              variant="approve" 
+              size="lg" 
+              className="w-full"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <Lock className="w-4 h-4" />
+              )}
+              {mode === "login" ? "Sign In" : "Sign Up"}
             </Button>
           </form>
+
+          <div className="mt-6 text-center">
+            <button
+              type="button"
+              onClick={() => {
+                setMode(mode === "login" ? "signup" : "login");
+                setError("");
+              }}
+              className="text-sm text-primary hover:underline"
+            >
+              {mode === "login" 
+                ? "Don't have an account? Sign up" 
+                : "Already have an account? Sign in"}
+            </button>
+          </div>
 
           <p className="text-xs text-center text-muted-foreground mt-6">
             This proposal is protected. Authorized access only.
