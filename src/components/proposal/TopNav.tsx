@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import excellenceLogo from "@/assets/excellence-hotsauce-logo.png";
+import brandvoxLogo from "@/assets/brandvox-logo.png";
 
 interface TopNavProps {
   sections: { id: string; label: string }[];
@@ -22,14 +24,21 @@ export const TopNav = ({ sections, activeIndex, onNavigate }: TopNavProps) => {
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">E</span>
-              </div>
-              <div className="hidden sm:block">
-                <p className="font-sora font-bold text-sm">Excellence Hot Sauce</p>
-                <p className="text-[10px] text-muted-foreground">by BRAND VOX</p>
+            {/* Logos */}
+            <div className="flex items-center gap-4">
+              <img 
+                src={excellenceLogo} 
+                alt="Excellence Hot Sauce" 
+                className="h-10 w-auto object-contain"
+              />
+              <div className="hidden sm:flex items-center gap-2">
+                <span className="text-muted-foreground text-xs">by</span>
+                <img 
+                  src={brandvoxLogo} 
+                  alt="Brand Vox" 
+                  className="h-6 w-auto object-contain brightness-0 invert opacity-80 hue-rotate-[20deg] saturate-150"
+                  style={{ filter: 'brightness(0) saturate(100%) invert(35%) sepia(100%) saturate(1000%) hue-rotate(-10deg)' }}
+                />
               </div>
             </div>
 
