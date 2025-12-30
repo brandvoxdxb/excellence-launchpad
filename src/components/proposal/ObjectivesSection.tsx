@@ -20,8 +20,8 @@ const objectives = [
 
 export const ObjectivesSection = () => {
   return (
-    <section className="slider-section relative py-20">
-      <div className="container mx-auto px-4 lg:px-8 h-full flex items-center pt-16">
+    <section className="slider-section relative py-6 sm:py-8 lg:py-12">
+      <div className="container mx-auto px-4 lg:px-8 h-full flex items-start">
         <div className="w-full max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
