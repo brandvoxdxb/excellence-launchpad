@@ -36,8 +36,7 @@ export const TopNav = ({ sections, activeIndex, onNavigate }: TopNavProps) => {
                 <img 
                   src={brandvoxLogo} 
                   alt="Brand Vox" 
-                  className="h-6 w-auto object-contain brightness-0 invert opacity-80 hue-rotate-[20deg] saturate-150"
-                  style={{ filter: 'brightness(0) saturate(100%) invert(35%) sepia(100%) saturate(1000%) hue-rotate(-10deg)' }}
+                  className="h-6 w-auto object-contain"
                 />
               </div>
             </div>
