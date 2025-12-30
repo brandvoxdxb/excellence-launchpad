@@ -15,6 +15,7 @@ import { SampleReelsSection } from "@/components/proposal/SampleReelsSection";
 import { KPIsSection } from "@/components/proposal/KPIsSection";
 import { CommercialClaritySection } from "@/components/proposal/CommercialClaritySection";
 import { ApprovalSection } from "@/components/proposal/ApprovalSection";
+import { ScrollToTopButton } from "@/components/proposal/ScrollToTopButton";
 import { useSectionNavigation } from "@/hooks/useSectionNavigation";
 
 const sections = [
@@ -112,6 +113,9 @@ const Index = () => {
 
       {/* Mobile swipe hint - shown briefly on first load */}
       <SwipeHint />
+
+      {/* Scroll to top button */}
+      <ScrollToTopButton />
     </div>
   );
 };
