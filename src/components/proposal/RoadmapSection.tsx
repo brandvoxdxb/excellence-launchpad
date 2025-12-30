@@ -22,7 +22,7 @@ const quarters = [
 
 export const RoadmapSection = () => {
   return (
-    <section className="slider-section relative py-12 md:py-20 !min-h-0 !h-auto">
+    <section className="slider-section relative py-12 md:py-20">
       <div className="container mx-auto px-4 lg:px-8 pt-16 md:pt-20 pb-8">
         <div className="w-full max-w-4xl mx-auto">
           <motion.div
