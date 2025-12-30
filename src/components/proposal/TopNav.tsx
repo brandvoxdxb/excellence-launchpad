@@ -1,5 +1,4 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -86,29 +85,19 @@ export const TopNav = ({ sections, activeIndex, onNavigate }: TopNavProps) => {
               ))}
             </nav>
 
-            {/* CTA & Mobile Toggle */}
-            <div className="flex items-center gap-2">
-              <Button 
-                variant="hero" 
-                size="sm" 
-                className="hidden sm:flex text-xs md:text-sm"
-                onClick={() => onNavigate(sections.length - 1)}
+            {/* Mobile Toggle */}
+            <button 
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden p-2 hover:bg-secondary rounded-lg transition-colors"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            >
+              <motion.div
+                animate={{ rotate: mobileOpen ? 90 : 0 }}
+                transition={{ duration: 0.2 }}
               >
-                Approve Plan
-              </Button>
-              <button 
-                onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 hover:bg-secondary rounded-lg transition-colors"
-                aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              >
-                <motion.div
-                  animate={{ rotate: mobileOpen ? 90 : 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-                </motion.div>
-              </button>
-            </div>
+                {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+              </motion.div>
+            </button>
           </div>
         </div>
       </motion.div>
@@ -152,19 +141,6 @@ export const TopNav = ({ sections, activeIndex, onNavigate }: TopNavProps) => {
                   </motion.button>
                 ))}
               </nav>
-              <div className="mt-4 pt-4 border-t border-border/50 sm:hidden">
-                <Button 
-                  variant="hero" 
-                  size="default" 
-                  className="w-full"
-                  onClick={() => {
-                    onNavigate(sections.length - 1);
-                    setMobileOpen(false);
-                  }}
-                >
-                  Approve Plan
-                </Button>
-              </div>
             </motion.div>
           </motion.div>
         )}
