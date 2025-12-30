@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { PlanToggle } from "./PlanToggle";
-import { CheckCircle, Download, Phone, MessageCircle, Target, RefreshCw, TrendingUp, Megaphone, LogOut } from "lucide-react";
-import { usePdfDownload } from "@/hooks/usePdfDownload";
+import { CheckCircle, Phone, MessageCircle, Target, RefreshCw, TrendingUp, Megaphone, LogOut } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +11,7 @@ interface ApprovalSectionProps {
 }
 
 const PHONE_NUMBER = "+971542146456";
-const WHATSAPP_MESSAGE = "Hi, I'm interested in the Excellence Hot Sauce marketing proposal.";
+const WHATSAPP_MESSAGE = "Hi, I am interested in the Excellence Hot Sauce marketing proposal.";
 
 const strategyBenefits = [
   { icon: Target, text: "Build brand trust before selling aggressively" },
@@ -22,7 +21,6 @@ const strategyBenefits = [
 ];
 
 export const ApprovalSection = ({ selectedPlan, onPlanChange }: ApprovalSectionProps) => {
-  const { generatePdf, isGenerating } = usePdfDownload();
   const { logout } = useAuth();
   const navigate = useNavigate();
 
@@ -96,7 +94,7 @@ export const ApprovalSection = ({ selectedPlan, onPlanChange }: ApprovalSectionP
 
             <h2 className="font-sora text-heading-1 mb-4">Ready to Approve?</h2>
             <p className="text-muted-foreground mb-8">
-              Select your preferred plan and let's begin the 12-month growth journey.
+              Select your preferred plan and let us begin the 12-month growth journey.
             </p>
 
             <div className="flex justify-center mb-8">
@@ -114,27 +112,21 @@ export const ApprovalSection = ({ selectedPlan, onPlanChange }: ApprovalSectionP
                   variant="outline" 
                   size="lg" 
                   className="flex-1"
-                  onClick={generatePdf}
-                  disabled={isGenerating}
-                >
-                  <Download className="w-4 h-4" />
-                  {isGenerating ? "Generating..." : "Download PDF"}
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="flex-1"
                   onClick={handleWhatsApp}
                 >
                   <MessageCircle className="w-4 h-4" />
                   WhatsApp
                 </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="flex-1"
+                  onClick={handleCall}
+                >
+                  <Phone className="w-4 h-4" />
+                  Call
+                </Button>
               </div>
-
-              <Button variant="ghost" size="lg" className="w-full" onClick={handleCall}>
-                <Phone className="w-4 h-4" />
-                Call +971 542 146 456
-              </Button>
 
               <Button 
                 variant="ghost" 

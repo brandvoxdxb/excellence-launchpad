@@ -13,7 +13,6 @@ import { SampleReelsSection } from "@/components/proposal/SampleReelsSection";
 import { KPIsSection } from "@/components/proposal/KPIsSection";
 import { CommercialClaritySection } from "@/components/proposal/CommercialClaritySection";
 import { ApprovalSection } from "@/components/proposal/ApprovalSection";
-import { ContactButtons } from "@/components/proposal/ContactButtons";
 import { useSectionNavigation } from "@/hooks/useSectionNavigation";
 
 const sections = [
@@ -80,8 +79,6 @@ const Index = () => {
         <CommercialClaritySection />
         <ApprovalSection selectedPlan={selectedPlan} onPlanChange={setSelectedPlan} />
       </div>
-      
-      <ContactButtons />
     </div>
   );
 };
