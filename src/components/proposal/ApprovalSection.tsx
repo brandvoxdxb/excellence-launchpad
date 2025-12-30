@@ -1,12 +1,19 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { PlanToggle } from "./PlanToggle";
-import { CheckCircle, Download, Phone, MessageCircle } from "lucide-react";
+import { CheckCircle, Download, Phone, MessageCircle, Target, RefreshCw, TrendingUp, Megaphone } from "lucide-react";
 
 interface ApprovalSectionProps {
   selectedPlan: "A" | "B";
   onPlanChange: (plan: "A" | "B") => void;
 }
+
+const strategyBenefits = [
+  { icon: Target, text: "Build brand trust before selling aggressively" },
+  { icon: RefreshCw, text: "Create reusable content assets" },
+  { icon: TrendingUp, text: "Grow organically across all platforms" },
+  { icon: Megaphone, text: "Support future paid ads and influencer campaigns" },
+];
 
 export const ApprovalSection = ({ selectedPlan, onPlanChange }: ApprovalSectionProps) => {
   return (
@@ -15,7 +22,37 @@ export const ApprovalSection = ({ selectedPlan, onPlanChange }: ApprovalSectionP
       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent" />
       
       <div className="container mx-auto px-4 lg:px-8 h-full flex items-center pt-16">
-        <div className="w-full max-w-2xl mx-auto relative">
+        <div className="w-full max-w-3xl mx-auto relative">
+          {/* Final Note */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-8 p-6 rounded-2xl bg-card/50 border border-border/50"
+          >
+            <h3 className="font-sora text-lg font-semibold mb-4 text-center">Final Note</h3>
+            <p className="text-sm text-muted-foreground text-center mb-4">This strategy is designed to:</p>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {strategyBenefits.map((benefit, i) => (
+                <motion.div
+                  key={benefit.text}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: i * 0.1 }}
+                  className="flex items-center gap-2 text-xs"
+                >
+                  <benefit.icon className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-muted-foreground">{benefit.text}</span>
+                </motion.div>
+              ))}
+            </div>
+            <p className="text-xs text-center text-primary mt-4 font-medium">
+              The first 3 months focus on foundation, education, and authority, ensuring Excellence Hot Sauce stands out in the UAE food market.
+            </p>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}

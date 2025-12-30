@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Play, Quote } from "lucide-react";
+import { Play, Quote, Eye, MousePointerClick } from "lucide-react";
 
 interface ScriptCardProps {
   name: string;
@@ -8,47 +8,62 @@ interface ScriptCardProps {
   overlay: string;
   cta: string;
   caption: string;
+  hashtags?: string;
   delay?: number;
 }
 
-export const ScriptCard = ({ name, hook, visual, overlay, cta, caption, delay = 0 }: ScriptCardProps) => {
+export const ScriptCard = ({ name, hook, visual, overlay, cta, caption, hashtags, delay = 0 }: ScriptCardProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      className="group p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all"
+      className="p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 group"
     >
-      <div className="flex items-start justify-between mb-4">
-        <div className="flex-1">
-          <p className="text-xs text-muted-foreground mb-1">{name}</p>
-          <h4 className="font-sora font-bold text-lg">"{hook}"</h4>
+      <div className="flex items-center gap-2 mb-3">
+        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+          <Play className="w-3 h-3 text-primary-foreground" fill="currentColor" />
         </div>
-        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-          <Play className="w-4 h-4 text-primary" />
-        </div>
+        <h4 className="font-sora font-semibold text-xs">{name}</h4>
       </div>
 
-      <div className="space-y-3 text-sm">
+      <div className="space-y-3 text-xs">
         <div>
-          <span className="text-muted-foreground">Visual:</span>
-          <p className="text-foreground/80">{visual}</p>
+          <p className="text-muted-foreground flex items-center gap-1 mb-1">
+            <Quote className="w-3 h-3 text-accent" />
+            Hook (0–3s)
+          </p>
+          <p className="text-foreground font-medium italic">"{hook}"</p>
         </div>
-        <div>
-          <span className="text-muted-foreground">Overlay:</span>
-          <p className="text-accent font-semibold">{overlay}</p>
-        </div>
-        <div>
-          <span className="text-muted-foreground">CTA:</span>
-          <p className="text-foreground/80">{cta}</p>
-        </div>
-      </div>
 
-      <div className="mt-4 pt-4 border-t border-border/50">
-        <div className="flex items-start gap-2">
-          <Quote className="w-4 h-4 text-primary/50 flex-shrink-0 mt-0.5" />
-          <p className="text-xs text-muted-foreground italic">{caption}</p>
+        <div>
+          <p className="text-muted-foreground flex items-center gap-1 mb-1">
+            <Eye className="w-3 h-3 text-primary" />
+            Visual
+          </p>
+          <p className="text-muted-foreground">{visual}</p>
+        </div>
+
+        <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
+          <p className="text-[10px] text-muted-foreground mb-1">Text Overlay</p>
+          <p className="text-primary font-semibold">"{overlay}"</p>
+        </div>
+
+        <div>
+          <p className="text-muted-foreground flex items-center gap-1 mb-1">
+            <MousePointerClick className="w-3 h-3 text-accent" />
+            CTA
+          </p>
+          <p className="text-accent text-[10px]">{cta}</p>
+        </div>
+
+        <div className="pt-2 border-t border-border/50">
+          <p className="text-[10px] text-muted-foreground mb-1">Caption</p>
+          <p className="text-foreground text-[10px] leading-relaxed">{caption}</p>
+          {hashtags && (
+            <p className="text-primary text-[9px] mt-1">{hashtags}</p>
+          )}
         </div>
       </div>
     </motion.div>
