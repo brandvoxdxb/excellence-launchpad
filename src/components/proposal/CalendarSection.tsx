@@ -150,7 +150,7 @@ const CalendarMonthCard = ({ month, index }: { month: typeof months[0]; index: n
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="flex-shrink-0 w-full lg:w-[calc(33.333%-1rem)] p-6 rounded-2xl bg-card border border-border/50"
+      className="flex-shrink-0 w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-card border border-border/50"
     >
       <div className="flex items-center gap-2 mb-2">
         <span className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-sm">
@@ -231,26 +231,26 @@ const CalendarMonthCard = ({ month, index }: { month: typeof months[0]; index: n
 
 export const CalendarSection = () => {
   return (
-    <section className="slider-section relative py-20">
-      <div className="container mx-auto px-4 lg:px-8 h-full flex items-center pt-16">
+    <section className="slider-section relative py-12 sm:py-16 lg:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center pt-16 sm:pt-20">
         <div className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-8"
+            className="text-center mb-6 sm:mb-8"
           >
-            <p className="text-primary font-semibold mb-2 text-sm uppercase tracking-wide">3-Month Content Calendar</p>
-            <h2 className="font-sora text-heading-1 mb-4">Multi-Platform Content Plan</h2>
-            <div className="flex flex-wrap justify-center gap-4 text-xs text-muted-foreground mb-2">
+            <p className="text-primary font-semibold mb-2 text-xs sm:text-sm uppercase tracking-wide">3-Month Content Calendar</p>
+            <h2 className="font-sora text-xl sm:text-2xl lg:text-heading-1 mb-3 sm:mb-4">Multi-Platform Content Plan</h2>
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-1 sm:gap-4 text-[10px] sm:text-xs text-muted-foreground mb-2">
               <span>• Same core content adapted per platform</span>
               <span>• Short-form video is the primary driver</span>
               <span>• Visual consistency across all channels</span>
             </div>
           </motion.div>
 
-          <div className="flex flex-col lg:flex-row gap-6 overflow-x-auto pb-4">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap lg:flex-nowrap gap-4 sm:gap-6 overflow-x-auto pb-4">
             {months.map((month, i) => (
               <CalendarMonthCard key={month.name} month={month} index={i} />
             ))}

@@ -33,27 +33,29 @@ const plans = [
 
 export const PlanComparisonSection = () => {
   return (
-    <section className="slider-section relative py-20">
-      <div className="container mx-auto px-4 lg:px-8 h-full flex items-center pt-16">
+    <section className="slider-section relative py-12 sm:py-16 lg:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center pt-16 sm:pt-20">
         <div className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-12"
           >
-            <p className="text-primary font-semibold mb-2 text-sm uppercase tracking-wide">Pricing</p>
-            <h2 className="font-sora text-heading-1 mb-4">Growth Plan Options</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
+            <p className="text-primary font-semibold mb-2 text-xs sm:text-sm uppercase tracking-wide">Pricing</p>
+            <h2 className="font-sora text-xl sm:text-2xl lg:text-heading-1 mb-3 sm:mb-4">Growth Plan Options</h2>
+            <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">
               Choose the plan that matches your growth ambitions. Both deliver premium quality.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
             <ComparisonCard {...plans[0]} delay={0} />
             <ComparisonCard {...plans[1]} isPopular delay={0.15} />
-            <ContentComparisonChart />
+            <div className="sm:col-span-2 lg:col-span-1">
+              <ContentComparisonChart />
+            </div>
           </div>
         </div>
       </div>

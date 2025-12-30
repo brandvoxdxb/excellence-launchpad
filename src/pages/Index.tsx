@@ -65,7 +65,7 @@ const Index = () => {
       <TopNav sections={sections} activeIndex={activeIndex} onNavigate={handleNavigate} />
       <SliderNav sections={sections} activeIndex={activeIndex} onNavigate={handleNavigate} />
       
-      <div ref={containerRef} className="slider-container h-screen">
+      <div ref={containerRef} className="slider-container h-screen" style={{ height: '100dvh' }}>
         <HeroSection selectedPlan={selectedPlan} onPlanChange={setSelectedPlan} onNavigate={handleNavigate} />
         <ExecutiveSummarySection />
         <ObjectivesSection />

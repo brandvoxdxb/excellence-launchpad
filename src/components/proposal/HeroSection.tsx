@@ -25,26 +25,26 @@ export const HeroSection = ({ selectedPlan, onPlanChange, onNavigate }: HeroSect
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-glow rounded-full blur-3xl pointer-events-none"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[300px] sm:w-[400px] lg:w-[600px] h-[300px] sm:h-[400px] lg:h-[600px] bg-gradient-glow rounded-full blur-3xl pointer-events-none"
       />
 
-      <div className="relative z-10 container mx-auto px-4 lg:px-8 h-full flex items-center pt-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center pt-20 sm:pt-24">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
           {/* Content */}
-          <div className="space-y-8">
+          <div className="space-y-5 sm:space-y-6 lg:space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-accent font-semibold mb-4 tracking-wide uppercase text-sm">
+              <p className="text-accent font-semibold mb-2 sm:mb-4 tracking-wide uppercase text-xs sm:text-sm">
                 Digital Marketing Proposal
               </p>
-              <h1 className="font-sora text-display-1 lg:text-[4.5rem] leading-[1.1] mb-4">
+              <h1 className="font-sora text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] leading-[1.1] mb-3 sm:mb-4">
                 Excellence{" "}
                 <span className="text-gradient">Hot Sauce</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-lg">
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-lg">
                 12-Month Brand Growth Strategy for UAE's Boldest Flavor
               </p>
             </motion.div>
@@ -54,19 +54,19 @@ export const HeroSection = ({ selectedPlan, onPlanChange, onNavigate }: HeroSect
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-2 sm:gap-3 lg:gap-4"
             >
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border/50">
-                <MapPin className="w-4 h-4 text-primary" />
-                <span className="text-sm">All UAE Emirates</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-secondary/50 border border-border/50">
+                <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+                <span className="text-xs sm:text-sm">All UAE Emirates</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border/50">
-                <Users className="w-4 h-4 text-accent" />
-                <span className="text-sm">50% EU + 50% Multinational</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-secondary/50 border border-border/50">
+                <Users className="w-3 h-3 sm:w-4 sm:h-4 text-accent" />
+                <span className="text-xs sm:text-sm">50% EU + 50% Multinational</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border/50">
-                <Zap className="w-4 h-4 text-sauce-amber" />
-                <span className="text-sm">7 Platforms</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-secondary/50 border border-border/50">
+                <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-sauce-amber" />
+                <span className="text-xs sm:text-sm">7 Platforms</span>
               </div>
             </motion.div>
 
@@ -85,12 +85,12 @@ export const HeroSection = ({ selectedPlan, onPlanChange, onNavigate }: HeroSect
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
-              <Button variant="hero" size="lg" onClick={() => onNavigate(10)}>
+              <Button variant="hero" size="lg" className="w-full sm:w-auto" onClick={() => onNavigate(10)}>
                 Approve Plan
               </Button>
-              <Button variant="heroOutline" size="lg" onClick={() => onNavigate(4)}>
+              <Button variant="heroOutline" size="lg" className="w-full sm:w-auto" onClick={() => onNavigate(4)}>
                 Compare Plans
               </Button>
             </motion.div>
@@ -99,13 +99,48 @@ export const HeroSection = ({ selectedPlan, onPlanChange, onNavigate }: HeroSect
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="text-xs text-muted-foreground"
+              className="text-xs text-muted-foreground text-center sm:text-left"
             >
               Prepared by <span className="text-foreground font-semibold">BRAND VOX</span>
             </motion.p>
           </div>
 
-          {/* Hero Product Images */}
+          {/* Hero Product Images - Mobile version */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative lg:hidden flex justify-center py-4"
+          >
+            <div className="relative flex items-end justify-center gap-2">
+              <motion.img
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                src={productJalapeno}
+                alt="Jalapeño Hot Sauce"
+                className="w-14 sm:w-20 h-auto object-contain drop-shadow-2xl"
+              />
+              <motion.img
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                src={productOriginal}
+                alt="Original Hot Sauce"
+                className="w-24 sm:w-32 h-auto object-contain drop-shadow-2xl z-10"
+              />
+              <motion.img
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                src={productDynamite}
+                alt="Dynamite Sauce"
+                className="w-16 sm:w-24 h-auto object-contain drop-shadow-2xl"
+              />
+            </div>
+          </motion.div>
+
+          {/* Hero Product Images - Desktop */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, x: 50 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -160,14 +195,14 @@ export const HeroSection = ({ selectedPlan, onPlanChange, onNavigate }: HeroSect
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2"
+          className="w-5 h-8 sm:w-6 sm:h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-1.5 sm:p-2"
         >
-          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-primary" />
         </motion.div>
       </motion.div>
     </section>
