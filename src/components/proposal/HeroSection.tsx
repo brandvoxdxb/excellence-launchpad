@@ -2,7 +2,10 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { PlanToggle } from "./PlanToggle";
 import { MapPin, Users, Zap } from "lucide-react";
-import heroSauce from "@/assets/hero-sauce.jpg";
+import productOriginal from "@/assets/product-hot-sauce-original.jpg";
+import productJalapeno from "@/assets/product-jalapeno.jpg";
+import productDynamite from "@/assets/product-dynamite.jpg";
+import productKetchup from "@/assets/product-hot-ketchup.jpg";
 
 interface HeroSectionProps {
   selectedPlan: "A" | "B";
@@ -84,7 +87,7 @@ export const HeroSection = ({ selectedPlan, onPlanChange, onNavigate }: HeroSect
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-wrap gap-4"
             >
-              <Button variant="hero" size="lg" onClick={() => onNavigate(11)}>
+              <Button variant="hero" size="lg" onClick={() => onNavigate(10)}>
                 Approve Plan
               </Button>
               <Button variant="heroOutline" size="lg" onClick={() => onNavigate(4)}>
@@ -102,7 +105,7 @@ export const HeroSection = ({ selectedPlan, onPlanChange, onNavigate }: HeroSect
             </motion.p>
           </div>
 
-          {/* Hero Image */}
+          {/* Hero Product Images */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, x: 50 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -111,11 +114,42 @@ export const HeroSection = ({ selectedPlan, onPlanChange, onNavigate }: HeroSect
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 rounded-3xl blur-3xl" />
-              <img
-                src={heroSauce}
-                alt="Excellence Hot Sauce Product"
-                className="relative w-full max-w-lg mx-auto rounded-3xl shadow-2xl"
-              />
+              
+              {/* Product showcase */}
+              <div className="relative flex items-end justify-center gap-4">
+                <motion.img
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  src={productJalapeno}
+                  alt="Jalapeño Hot Sauce"
+                  className="w-24 h-auto object-contain drop-shadow-2xl"
+                />
+                <motion.img
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                  src={productOriginal}
+                  alt="Original Hot Sauce"
+                  className="w-40 h-auto object-contain drop-shadow-2xl z-10"
+                />
+                <motion.img
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                  src={productDynamite}
+                  alt="Dynamite Sauce"
+                  className="w-28 h-auto object-contain drop-shadow-2xl"
+                />
+                <motion.img
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.6, duration: 0.5 }}
+                  src={productKetchup}
+                  alt="Hot Ketchup"
+                  className="w-24 h-auto object-contain drop-shadow-2xl"
+                />
+              </div>
             </div>
           </motion.div>
         </div>

@@ -5,7 +5,6 @@ import { HeroSection } from "@/components/proposal/HeroSection";
 import { ExecutiveSummarySection } from "@/components/proposal/ExecutiveSummarySection";
 import { ObjectivesSection } from "@/components/proposal/ObjectivesSection";
 import { PlatformsSection } from "@/components/proposal/PlatformsSection";
-import { ProductsSection } from "@/components/proposal/ProductsSection";
 import { PlanComparisonSection } from "@/components/proposal/PlanComparisonSection";
 import { DeliverablesSection } from "@/components/proposal/DeliverablesSection";
 import { RoadmapSection } from "@/components/proposal/RoadmapSection";
@@ -22,7 +21,6 @@ const sections = [
   { id: "summary", label: "Summary" },
   { id: "objectives", label: "Objectives" },
   { id: "platforms", label: "Platforms" },
-  { id: "products", label: "Products" },
   { id: "plans", label: "Plans" },
   { id: "deliverables", label: "Deliverables" },
   { id: "roadmap", label: "Roadmap" },
@@ -73,7 +71,6 @@ const Index = () => {
         <ExecutiveSummarySection />
         <ObjectivesSection />
         <PlatformsSection />
-        <ProductsSection />
         <PlanComparisonSection />
         <DeliverablesSection selectedPlan={selectedPlan} />
         <RoadmapSection />
