@@ -231,8 +231,8 @@ const CalendarMonthCard = ({ month, index }: { month: typeof months[0]; index: n
 
 export const CalendarSection = () => {
   return (
-    <section className="slider-section relative py-12 sm:py-16 lg:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center pt-16 sm:pt-20">
+    <section className="slider-section relative py-6 sm:py-8 lg:py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-start">
         <div className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

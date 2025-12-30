@@ -39,11 +39,11 @@ export const ApprovalSection = ({ selectedPlan, onPlanChange }: ApprovalSectionP
   };
 
   return (
-    <section className="slider-section relative py-12 sm:py-16 lg:py-20">
+    <section className="slider-section relative py-6 sm:py-8 lg:py-12">
       {/* Background glow */}
       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent" />
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center pt-16 sm:pt-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-start">
         <div className="w-full max-w-3xl mx-auto relative">
           {/* Final Note */}
           <motion.div

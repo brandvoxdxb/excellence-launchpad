@@ -19,8 +19,8 @@ const nodes = [
 
 export const ExecutiveSummarySection = () => {
   return (
-    <section className="slider-section relative overflow-hidden py-12 sm:py-16 lg:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center pt-16 sm:pt-20">
+    <section className="slider-section relative overflow-hidden py-6 sm:py-8 lg:py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-start">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
           {/* Text */}
           <motion.div

@@ -154,6 +154,13 @@
     overflow-y: auto;
     overscroll-behavior-y: contain;
     -webkit-overflow-scrolling: touch;
+    padding-top: 4rem; /* Header height on mobile */
+  }
+
+  @media (min-width: 768px) {
+    .slider-section {
+      padding-top: 4.5rem; /* Header height on desktop */
+    }
   }
 
   /* Modern Scrollbar Styling */
