@@ -15,7 +15,7 @@ import { CommercialClaritySection } from "@/components/proposal/CommercialClarit
 import { ApprovalSection } from "@/components/proposal/ApprovalSection";
 
 const sections = [
-  { id: "hero", label: "Hero" },
+  { id: "home", label: "Home" },
   { id: "summary", label: "Summary" },
   { id: "objectives", label: "Objectives" },
   { id: "platforms", label: "Platforms" },
