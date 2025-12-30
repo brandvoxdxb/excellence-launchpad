@@ -4,81 +4,88 @@
 
 @layer base {
   :root {
-    /* Excellence Hot Sauce Brand Colors */
-    --background: 220 20% 6%;
-    --foreground: 0 0% 98%;
+    /* Brand Colors - Blue Theme */
+    --background: 240 1% 13%;
+    --foreground: 0 0% 100%;
 
-    --card: 220 18% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 240 1% 15%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 220 18% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 240 1% 15%;
+    --popover-foreground: 0 0% 100%;
 
-    /* Hot Sauce Red */
-    --primary: 0 75% 50%;
+    /* Brand Blue #284595 */
+    --primary: 224 58% 37%;
     --primary-foreground: 0 0% 100%;
 
-    /* Dark Surface */
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 0 0% 98%;
+    /* Dark Gray #343435 */
+    --secondary: 240 1% 21%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 12% 20%;
-    --muted-foreground: 220 10% 60%;
+    --muted: 240 1% 25%;
+    --muted-foreground: 0 0% 70%;
 
-    /* Orange Accent */
-    --accent: 25 90% 55%;
+    /* Blue Accent */
+    --accent: 224 58% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 20%;
-    --input: 220 15% 18%;
-    --ring: 0 75% 50%;
+    --border: 224 40% 30%;
+    --input: 240 1% 25%;
+    --ring: 224 58% 37%;
 
     --radius: 0.75rem;
 
     /* Custom Brand Tokens */
-    --sauce-red: 0 75% 50%;
-    --sauce-red-glow: 0 75% 60%;
-    --sauce-orange: 25 90% 55%;
-    --sauce-orange-glow: 30 95% 65%;
-    --sauce-amber: 35 92% 50%;
+    --sauce-red: 224 58% 37%;
+    --sauce-red-glow: 224 58% 50%;
+    --sauce-orange: 224 50% 60%;
+    --sauce-orange-glow: 224 45% 70%;
+    --sauce-amber: 200 60% 50%;
     
-    --surface-dark: 220 20% 6%;
-    --surface-elevated: 220 18% 10%;
-    --surface-light: 220 15% 95%;
+    --surface-dark: 240 1% 10%;
+    --surface-elevated: 240 1% 15%;
+    --surface-light: 0 0% 100%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 75% 50% / 0.15), hsl(25 90% 55% / 0.1), transparent);
-    --gradient-card: linear-gradient(180deg, hsl(220 18% 12%), hsl(220 18% 8%));
-    --gradient-accent: linear-gradient(135deg, hsl(0 75% 50%), hsl(25 90% 55%));
-    --gradient-glow: radial-gradient(ellipse at center, hsl(0 75% 50% / 0.3), transparent 70%);
+    --gradient-hero: linear-gradient(135deg, hsl(224 58% 37% / 0.2), hsl(224 58% 50% / 0.1), transparent);
+    --gradient-card: linear-gradient(180deg, hsl(240 1% 18%), hsl(240 1% 13%));
+    --gradient-accent: linear-gradient(135deg, hsl(224 58% 37%), hsl(224 58% 55%));
+    --gradient-glow: radial-gradient(ellipse at center, hsl(224 58% 37% / 0.3), transparent 70%);
     
     /* Shadows */
     --shadow-sm: 0 2px 8px hsl(0 0% 0% / 0.3);
     --shadow-md: 0 8px 24px hsl(0 0% 0% / 0.4);
     --shadow-lg: 0 16px 48px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 40px hsl(0 75% 50% / 0.3);
-    --shadow-accent: 0 8px 32px hsl(25 90% 55% / 0.25);
+    --shadow-glow: 0 0 40px hsl(224 58% 37% / 0.3);
+    --shadow-accent: 0 8px 32px hsl(224 58% 50% / 0.25);
 
-    --sidebar-background: 220 18% 10%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 0 75% 50%;
+    --sidebar-background: 240 1% 13%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 224 58% 37%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 15% 15%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 220 15% 20%;
-    --sidebar-ring: 0 75% 50%;
+    --sidebar-accent: 240 1% 21%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 224 40% 30%;
+    --sidebar-ring: 224 58% 37%;
+
+    /* Chart Colors */
+    --chart-1: 224 58% 37%;
+    --chart-2: 224 58% 50%;
+    --chart-3: 224 40% 60%;
+    --chart-4: 200 70% 50%;
+    --chart-5: 240 50% 60%;
   }
 
   .light-section {
-    --background: 220 15% 97%;
-    --foreground: 220 20% 10%;
+    --background: 0 0% 98%;
+    --foreground: 240 1% 21%;
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 10%;
+    --card-foreground: 240 1% 21%;
     --muted: 220 10% 90%;
-    --muted-foreground: 220 10% 40%;
+    --muted-foreground: 240 1% 40%;
     --border: 220 10% 88%;
   }
 }
@@ -210,10 +217,10 @@
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px hsl(0 75% 50% / 0.3);
+    box-shadow: 0 0 20px hsl(224 58% 37% / 0.3);
   }
   50% {
-    box-shadow: 0 0 40px hsl(0 75% 50% / 0.5);
+    box-shadow: 0 0 40px hsl(224 58% 37% / 0.5);
   }
 }
 
