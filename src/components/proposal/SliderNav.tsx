@@ -19,7 +19,7 @@ export const SliderNav = ({ sections, activeIndex, onNavigate }: SliderNavProps)
         >
           <span 
             className={cn(
-              "text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap",
+              "text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap uppercase tracking-wide",
               activeIndex === index ? "text-accent" : "text-muted-foreground"
             )}
           >

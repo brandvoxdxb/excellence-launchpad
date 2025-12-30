@@ -60,7 +60,7 @@ export const TopNav = ({ sections, activeIndex, onNavigate }: TopNavProps) => {
                   key={section.id}
                   onClick={() => onNavigate(index)}
                   className={cn(
-                    "px-3 py-1.5 text-xs font-medium rounded-md transition-colors",
+                    "px-3 py-1.5 text-xs font-medium rounded-md transition-colors uppercase tracking-wide",
                     activeIndex === index 
                       ? "bg-primary/20 text-primary" 
                       : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
@@ -75,7 +75,7 @@ export const TopNav = ({ sections, activeIndex, onNavigate }: TopNavProps) => {
                   key={section.id}
                   onClick={() => onNavigate(index + 6)}
                   className={cn(
-                    "px-3 py-1.5 text-xs font-medium rounded-md transition-colors",
+                    "px-3 py-1.5 text-xs font-medium rounded-md transition-colors uppercase tracking-wide",
                     activeIndex === index + 6 
                       ? "bg-primary/20 text-primary" 
                       : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
@@ -142,7 +142,7 @@ export const TopNav = ({ sections, activeIndex, onNavigate }: TopNavProps) => {
                       setMobileOpen(false);
                     }}
                     className={cn(
-                      "px-3 py-2.5 text-left text-sm font-medium rounded-lg transition-colors",
+                      "px-3 py-2.5 text-left text-sm font-medium rounded-lg transition-colors uppercase tracking-wide",
                       activeIndex === index 
                         ? "bg-primary/20 text-primary border border-primary/30" 
                         : "text-muted-foreground hover:text-foreground hover:bg-secondary/50 border border-transparent"
