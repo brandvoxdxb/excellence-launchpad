@@ -1,12 +1,18 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { PlanToggle } from "./PlanToggle";
-import { CheckCircle, Download, Phone, MessageCircle, Target, RefreshCw, TrendingUp, Megaphone } from "lucide-react";
+import { CheckCircle, Download, Phone, MessageCircle, Target, RefreshCw, TrendingUp, Megaphone, LogOut } from "lucide-react";
+import { usePdfDownload } from "@/hooks/usePdfDownload";
+import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 interface ApprovalSectionProps {
   selectedPlan: "A" | "B";
   onPlanChange: (plan: "A" | "B") => void;
 }
+
+const PHONE_NUMBER = "+971542146456";
+const WHATSAPP_MESSAGE = "Hi, I'm interested in the Excellence Hot Sauce marketing proposal.";
 
 const strategyBenefits = [
   { icon: Target, text: "Build brand trust before selling aggressively" },
@@ -16,6 +22,24 @@ const strategyBenefits = [
 ];
 
 export const ApprovalSection = ({ selectedPlan, onPlanChange }: ApprovalSectionProps) => {
+  const { generatePdf, isGenerating } = usePdfDownload();
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleWhatsApp = () => {
+    const url = `https://wa.me/${PHONE_NUMBER.replace(/\D/g, "")}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+    window.open(url, "_blank");
+  };
+
+  const handleCall = () => {
+    window.location.href = `tel:${PHONE_NUMBER}`;
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
   return (
     <section className="slider-section relative py-20">
       {/* Background glow */}
@@ -86,19 +110,40 @@ export const ApprovalSection = ({ selectedPlan, onPlanChange }: ApprovalSectionP
               </Button>
 
               <div className="flex gap-3">
-                <Button variant="outline" size="lg" className="flex-1">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="flex-1"
+                  onClick={generatePdf}
+                  disabled={isGenerating}
+                >
                   <Download className="w-4 h-4" />
-                  Download PDF
+                  {isGenerating ? "Generating..." : "Download PDF"}
                 </Button>
-                <Button variant="outline" size="lg" className="flex-1">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="flex-1"
+                  onClick={handleWhatsApp}
+                >
                   <MessageCircle className="w-4 h-4" />
                   WhatsApp
                 </Button>
               </div>
 
-              <Button variant="ghost" size="lg" className="w-full">
+              <Button variant="ghost" size="lg" className="w-full" onClick={handleCall}>
                 <Phone className="w-4 h-4" />
-                Book a Call
+                Call +971 542 146 456
+              </Button>
+
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="w-full text-muted-foreground hover:text-destructive mt-4"
+                onClick={handleLogout}
+              >
+                <LogOut className="w-4 h-4" />
+                Sign Out
               </Button>
             </div>
 
